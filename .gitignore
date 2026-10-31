@@ -1,0 +1,17 @@
+# Logs e node_modules
+node_modules/
+*.log
+
+# Variáveis de ambiente e segredos
+.env
+.env.local
+*.pem
+
+# IDEs
+.vscode/
+.idea/
+
+# Terraform / Ansible temporários
+*.tfstate
+*.tfstate.backup
+.terraform/
