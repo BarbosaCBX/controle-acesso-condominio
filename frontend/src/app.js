@@ -1,7 +1,7 @@
 // URL dinâmica apontando para o endpoint da API
-const API_URL = window.location.hostname === 'localhost' 
-  ? 'http://localhost:8000/api/v1' 
-  : '/api/v1';
+const API_URL = (window.location.protocol === 'file:' || window.location.port !== '8000')
+  ? 'http://localhost:8000'
+  : '';
 
 document.addEventListener('DOMContentLoaded', () => {
   checkApiHealth();
@@ -20,7 +20,7 @@ async function checkApiHealth() {
     } else {
       throw new Error();
     }
-  } catch {
+  } catch (err) {
     badge.textContent = 'API Offline (Modo Dev)';
     badge.className = 'badge offline';
   }
